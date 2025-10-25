@@ -23,10 +23,10 @@ SECRET_KEY =\
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['architadhepe-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+ALLOWED_HOSTS = ['https://architadhepe-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
     'localhost',
     '127.0.0.1',]
-CSRF_TRUSTED_ORIGINS = ['https://architadhepe-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai']
+CSRF_TRUSTED_ORIGINS = ['https://architadhepe-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
 
 
 REST_FRAMEWORK = {
