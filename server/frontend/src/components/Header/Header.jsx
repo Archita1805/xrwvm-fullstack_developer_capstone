@@ -2,6 +2,7 @@ import React from 'react';
 import "../assets/style.css";
 import "../assets/bootstrap.min.css";
 
+
 const Header = () => {
     const logout = async (e) => {
     e.preventDefault();
@@ -9,7 +10,7 @@ const Header = () => {
     const res = await fetch(logout_url, {
       method: "GET",
     });
-  
+ 
     const json = await res.json();
     if (json) {
       let username = sessionStorage.getItem('username');
@@ -22,50 +23,51 @@ const Header = () => {
       alert("The user could not be logged out.")
     }
   };
-    
-//The default home page items are the login details panel
-let home_page_items =  <div></div>
+   
+let home_page_items = <div className="auth-panel">
+  <a className="auth-link" href="/login">Login</a>
+  <a className="auth-link" href="/register">Register</a>
+</div>
 
-//Gets the username in the current session
+
 let curr_user = sessionStorage.getItem('username')
 
-//If the user is logged in, show the username and logout option on home page
+
 if ( curr_user !== null &&  curr_user !== "") {
     home_page_items = <div className="input_panel">
-      <text className='username'>{sessionStorage.getItem("username")}</text>
-    <a className="nav_item" href="/djangoapp/logout" onClick={logout}>Logout</a>
-  </div>
+      <span className='username'>{sessionStorage.getItem("username")}</span>
+      <a className="nav_item logout-link" href="/djangoapp/logout" onClick={logout}>Logout</a>
+    </div>
 }
     return (
         <div>
-          <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor:"darkturquoise",height:"1in"}}>
-            <div class="container-fluid">
-              <h2 style={{paddingRight: "5%"}}>Dealerships</h2>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+          <nav className="navbar navbar-expand-lg navbar-light custom-navbar">
+            <div className="container-fluid">
+              <h2 className="navbar-brand-title">Dealerships</h2>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" style={{fontSize: "larger"}} aria-current="page" href="/">Home</a>
+              <div className="collapse navbar-collapse" id="navbarText">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <a className="nav-link custom-nav-link" href="/">Home</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" style={{fontSize: "larger"}} href="/about">About Us</a>
+                  <li className="nav-item">
+                    <a className="nav-link custom-nav-link" href="/about">About Us</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" style={{fontSize: "larger"}} href="/contact">Contact Us</a>
+                  <li className="nav-item">
+                    <a className="nav-link custom-nav-link" href="/contact">Contact Us</a>
                   </li>
                 </ul>
-                <span class="navbar-text">
-                  <div class="loginlink" id="loginlogout">
+                <span className="navbar-text">
                   {home_page_items}
-                  </div>
-                  </span>
+                </span>
               </div>
             </div>
           </nav>
         </div>
     )
 }
+
 
 export default Header

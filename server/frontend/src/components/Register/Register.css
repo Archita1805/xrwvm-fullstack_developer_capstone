@@ -8,17 +8,20 @@
   width: 30%;
 }
 
+
 .inputs{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+
 .input{
   display: flex;
   flex-direction:row;
   align-items: center;
 }
+
 
 .input_field{
   height:40px;
@@ -27,12 +30,14 @@
   font-size: medium;
 }
 
+
 .submit_panel{
   display: flex;
   flex-direction:column;
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
 
 .submit{
   margin-left: 30%;
@@ -44,15 +49,18 @@
   height:50px;
 }
 
+
 .submit:hover {
   background-color: wheat;
 }
+
 
 .header{
   font: 4em sans-serif;
   color: white;
   margin: .5cm;
 }
+
 
 .img_icon{
   width:40px;
@@ -63,3 +71,6 @@
   text-align:center;
   box-shadow: 2px 2px 3px #999;  
 }
+
+
+
